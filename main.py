@@ -27,7 +27,7 @@ def main():
             icon=DivIcon(html=f"""<div style="font-size: 12pt;font-family: helvetica;
              color: purple">{data.iloc[i]["name"]}</div>""")).add_to(m)
 
-    tooltip = "Klikk på meg"
+    # tooltip = "Klikk på meg"
 
     for i in range(0, len(data)):
         html = f"""<div>
@@ -41,7 +41,7 @@ def main():
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=popup,
             icon=folium.Icon(icon="beer", prefix="fa", color="blue"),
-            tooltip=tooltip,
+            # tooltip=tooltip,
         ).add_to(m)
 
     title = "Praha 2025"
