@@ -13,8 +13,8 @@ def main():
         "lon": inputdata.longitude,
         "name": inputdata.pubname,
         "addr": inputdata.pubaddress,
-        "img": [inputdata.Rokoko, inputdata.Pinkasů, inputdata.Irish, inputdata.Tygra, inputdata.Márnice,
-                inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
+        # "img": [inputdata.Rokoko, inputdata.Pinkasů, inputdata.Irish, inputdata.Tygra, inputdata.Márnice,
+        #         inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
     })
 
     # m = folium.Map(location=start, width=700, height=500, zoom_start=15, min_zoom=5, max_zoom=18, )
@@ -31,12 +31,12 @@ def main():
 
     for i in range(0, len(data)):
         html = f"""<div>
-            <img src={data.iloc[i]["img"]}>
+            
             <br /><span>{data.iloc[i]["name"]}</span>
             <br /><span>{data.iloc[i]["addr"]}</span>
             </div>"""
         iframe = folium.IFrame(html)
-        popup = folium.Popup(iframe, max_width=300)
+        popup = folium.Popup(iframe, min_width=200, max_width=300)
         folium.Marker(
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=popup,
