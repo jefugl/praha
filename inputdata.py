@@ -4,7 +4,7 @@ longitude = [14.426576497417004, 14.423308511067663, 14.421341106646786, 14.4179
              14.402061336478564, 14.403469318632586, 14.401557488978911]
 
 pubname = ['1.Hotel_Rokoko', '2.Pinkasů', '3.McCarthy\'s_Irish_Pub', '4.Zlatého_Tygra', '5.Café_Márnice',
-           '6.Kocoura', '7.Hrocha', '8.Mål']
+           '6.Kocoura', '7.Hrocha', '8.Praha_Castle']
 pubaddress = ["Václavské nám. 794/38, 110 00 Nové Město, Tsjekkia", "Jungmannovo nám. 756 /16, 110 00 Můstek, Tsjekkia",
               "Rytířská 406/10, 110 00 Staré Město, Tsjekkia", "Husova 228/17 Staré Město Praha 1 Praha 1, 110 00 Praha 1, Tsjekkia",
               "U Lužického semináře, Malá, Hroznová 489/3, Malá Strana, 118 00 Praha, Tsjekkia", "2, Nerudova 205, Malá Strana, 118 00 Praha, Tsjekkia",
