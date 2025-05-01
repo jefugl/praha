@@ -16,8 +16,6 @@ def main():
         # "img": [inputdata.Rokoko, inputdata.Pinkasů, inputdata.Irish, inputdata.Tygra, inputdata.Márnice,
         #         inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
     })
-
-    # m = folium.Map(location=start, width=700, height=500, zoom_start=15, min_zoom=5, max_zoom=18, )
     m = folium.Map(location=start, zoom_start=15, min_zoom=10, max_zoom=18, width="100%", height="100%")
 
     for i in range(0, len(data)):
@@ -25,7 +23,7 @@ def main():
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=data.iloc[i]['addr'],
             icon=DivIcon(html=f"""<div style="font-size: 12pt;font-family: helvetica;
-             color: purple">{data.iloc[i]["name"]}</div>""")).add_to(m)
+             color: black">{data.iloc[i]["name"]}</div>""")).add_to(m)
 
     # tooltip = "Klikk på meg"
 
@@ -49,16 +47,7 @@ def main():
                  <h3 align="center" ;"font-size:22px"><b>{}</b></h3>
                  """.format(title)
     m.get_root().html.add_child(folium.Element(title_html))
-
-    # folium.TileLayer('OpenStreetMap', attr='folium.TileLayer').add_to(m)
-    # folium.TileLayer('Stamen Toner', attr='folium.TileLayer').add_to(m)
-    # folium.TileLayer('Stamen Water Color', attr='folium.TileLayer').add_to(m)
-    # folium.TileLayer('cartodbpositron', attr='folium.TileLayer').add_to(m)
-    # folium.TileLayer('cartodbdark_matter', attr='folium.TileLayer').add_to(m)
-    # folium.LayerControl().add_to(m)
-
     m.save("index.html")
-
     webbrowser.open("index.html")
 
 
