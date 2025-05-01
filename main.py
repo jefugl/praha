@@ -6,7 +6,7 @@ import webbrowser
 
 
 def main():
-    start = 50.086, 14.414
+    start = 50.0869, 14.414
 
     data = pd.DataFrame({
         "lat": inputdata.latitude,
