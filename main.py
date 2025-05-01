@@ -17,7 +17,7 @@ def main():
                 inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
     })
 
-    m = folium.Map(location=start, width=700, height=500, zoom_start=15, min_zoom=5, max_zoom=18)
+    m = folium.Map(location=start, zoom_start=15, min_zoom=5, max_zoom=18)
 
     for i in range(0, len(data)):
         folium.Marker(
@@ -35,7 +35,7 @@ def main():
             <br /><span>{data.iloc[i]["addr"]}</span>
             </div>"""
         iframe = folium.IFrame(html)
-        popup = folium.Popup(iframe, min_width=500, max_width=700)
+        popup = folium.Popup(iframe, )
         folium.Marker(
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=popup,
