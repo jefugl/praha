@@ -6,7 +6,7 @@ import webbrowser
 
 
 def main():
-    start = 50.0869, 14.414
+    start = 50.085, 14.412
 
     data = pd.DataFrame({
         "lat": inputdata.latitude,
@@ -17,6 +17,7 @@ def main():
                 inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
     })
 
+    # m = folium.Map(location=start, width=700, height=500, zoom_start=15, min_zoom=5, max_zoom=18, )
     m = folium.Map(location=start, zoom_start=15, min_zoom=10, max_zoom=18, width="100%", height="100%")
 
     for i in range(0, len(data)):
@@ -24,7 +25,7 @@ def main():
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=data.iloc[i]['addr'],
             icon=DivIcon(html=f"""<div style="font-size: 12pt;font-family: helvetica;
-             color: black">{data.iloc[i]["name"]}</div>""")).add_to(m)
+             color: purple">{data.iloc[i]["name"]}</div>""")).add_to(m)
 
     tooltip = "Klikk på meg"
 
@@ -35,7 +36,7 @@ def main():
             <br /><span>{data.iloc[i]["addr"]}</span>
             </div>"""
         iframe = folium.IFrame(html)
-        popup = folium.Popup(iframe, )
+        popup = folium.Popup(iframe, max_width=300)
         folium.Marker(
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=popup,
@@ -43,19 +44,11 @@ def main():
             tooltip=tooltip,
         ).add_to(m)
 
-    # title = "Praha 2025"
-    # title_html = """
-    #              <h3 align="center" style="font-size: 22px"><b>{}</b></h3>
-    #              """.format(title)
-    css_link = """
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    """
-    m.get_root().html.add_child(folium.Element(css_link))
-
-    # m.get_root().html.add_child(folium.Element(title_html))
+    title = "Praha 2025"
+    title_html = """
+                 <h3 align="center" ;"font-size:22px"><b>{}</b></h3>
+                 """.format(title)
+    m.get_root().html.add_child(folium.Element(title_html))
 
     # folium.TileLayer('OpenStreetMap', attr='folium.TileLayer').add_to(m)
     # folium.TileLayer('Stamen Toner', attr='folium.TileLayer').add_to(m)
