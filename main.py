@@ -17,7 +17,7 @@ def main():
                 inputdata.Kocoura, inputdata.Hrocha, inputdata.Mål]
     })
 
-    m = folium.Map(location=start, zoom_start=15, min_zoom=5, max_zoom=18)
+    m = folium.Map(location=start, zoom_start=15, min_zoom=10, max_zoom=18, width="100%", height="100%")
 
     for i in range(0, len(data)):
         folium.Marker(
@@ -43,11 +43,19 @@ def main():
             tooltip=tooltip,
         ).add_to(m)
 
-    title = "Praha 2025"
-    title_html = """
-                 <h3 align="center" style="width:40%;"font-size:22px"><b>{}</b></h3>
-                 """.format(title)
-    m.get_root().html.add_child(folium.Element(title_html))
+    # title = "Praha 2025"
+    # title_html = """
+    #              <h3 align="center" style="font-size: 22px"><b>{}</b></h3>
+    #              """.format(title)
+    css_link = """
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    """
+    m.get_root().html.add_child(folium.Element(css_link))
+
+    # m.get_root().html.add_child(folium.Element(title_html))
 
     # folium.TileLayer('OpenStreetMap', attr='folium.TileLayer').add_to(m)
     # folium.TileLayer('Stamen Toner', attr='folium.TileLayer').add_to(m)
