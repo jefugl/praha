@@ -22,8 +22,9 @@ def main():
         folium.Marker(
             location=[data.iloc[i]["lat"], data.iloc[i]["lon"]],
             popup=data.iloc[i]['addr'],
-            icon=DivIcon(html=f"""<div style="font-size: 12pt;font-family: helvetica;
-             color: black">{data.iloc[i]["name"]}</div>""")).add_to(m)
+            icon=DivIcon(html=f"""<div style="font-size: 14pt;font-family: sans-serif;
+                                  color: red">{data.iloc[i]["name"]}</div>""")
+        ).add_to(m)
 
     # tooltip = "Klikk på meg"
 
